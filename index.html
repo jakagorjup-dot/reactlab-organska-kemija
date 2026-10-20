@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="sl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f2">
+    <meta name="description" content="Kratke in interaktivne vaje iz organske kemije za 3. in 4. letnik srednje šole. Učite se brez povezave, korak za korakom.">
+    <title>React Lab | Organska kemija za srednjo šolo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Preskoči na lekcijo</a>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="React Lab – domača stran">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>react<span class="brand-light">lab</span></span>
+        </a>
+        <p class="topbar-note">Organska kemija, korak za korakom</p>
+        <div class="stats" aria-label="Vaš učni napredek">
+          <div class="stat"><span class="stat-icon xp-icon" aria-hidden="true">+</span><span><strong id="xp-total">0</strong><small>XP</small></span></div>
+          <div class="stat"><span class="stat-icon streak-icon" aria-hidden="true">★</span><span><strong id="streak-total">0</strong><small>DNEVNI NIZ</small></span></div>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" aria-label="Navigacija po predmetu">
+          <div class="course-label"><span class="course-dot"></span> ORGANSKA KEMIJA · 3. IN 4. LETNIK</div>
+          <div class="course-progress">
+            <div class="progress-heading"><span>Učna pot</span><strong id="progress-label">0 / 8</strong></div>
+            <div class="progress-track" role="progressbar" aria-label="Napredek pri predmetu" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="course-progress"><span id="course-progress-fill"></span></div>
+            <p id="progress-caption">Z nekaj vaje pridete daleč.</p>
+          </div>
+          <nav id="lesson-nav" class="lesson-nav" aria-label="Lekcije"></nav>
+          <button id="add-material-button" class="add-material-button" type="button">
+            <span aria-hidden="true">+</span> Dodaj svojo snov
+          </button>
+          <div class="sidebar-foot">
+            <span class="offline-mark" aria-hidden="true"></span>
+            <span>Deluje brez povezave<br><small>Napredek ostane v tej napravi</small></span>
+          </div>
+        </aside>
+
+        <main id="main" class="main-content" tabindex="-1">
+          <section id="welcome-panel" class="welcome-panel" aria-labelledby="welcome-title">
+            <div class="welcome-copy">
+              <p class="eyebrow">ORGANSKA KEMIJA ZA SREDNJEŠOLCE</p>
+              <h1 id="welcome-title">Od ogljika do <span>življenja.</span></h1>
+              <p class="welcome-text">Spoznajte ogljikovodike, funkcionalne skupine in molekule, ki gradijo živa bitja ter vsakdanje materiale. Kratki izzivi z jasnimi razlagami za 3. in 4. letnik srednje šole.</p>
+              <button id="start-button" class="primary-button" type="button">Začnite učenje <span aria-hidden="true">-&gt;</span></button>
+              <p class="welcome-note">8 sklopov <span aria-hidden="true">/</span> 24 izzivov <span aria-hidden="true">/</span> osnovne lekcije brez povezave</p>
+            </div>
+            <div class="molecule-art" aria-hidden="true">
+              <svg viewBox="0 0 300 200" role="img">
+                <circle class="orbit" cx="150" cy="100" r="67"/>
+                <circle class="orbit orbit-2" cx="150" cy="100" r="91"/>
+                <path class="bond" d="M78 103h41m59 0h31"/>
+                <circle class="atom atom-teal" cx="79" cy="103" r="4"/>
+                <circle class="atom atom-orange" cx="208" cy="103" r="4"/>
+                <text class="formula-label" x="34" y="110">CH₃</text>
+                <text class="formula-label" x="119" y="110">CH₂</text>
+                <text class="formula-label label-o" x="212" y="110">OH</text>
+              </svg>
+              <div class="art-tag tag-top">ORGANSKE MOLEKULE</div><div class="art-tag tag-bottom">ETANOL</div>
+            </div>
+          </section>
+
+          <section class="lesson-heading" aria-live="polite">
+            <div><p class="eyebrow" id="lesson-kicker">VAŠA UČNA POT</p><h2 id="lesson-title">Izberite temo za začetek</h2><p id="lesson-description">Vsak sklop vzame le nekaj minut.</p></div>
+            <div class="lesson-badge"><span aria-hidden="true">03</span><span>IZZIVI<br>NA SKLOP</span></div>
+          </section>
+
+          <section id="lesson-card" class="lesson-card" aria-labelledby="challenge-title">
+            <div class="lesson-meta"><span id="question-counter">KO STE PRIPRAVLJENI</span><span class="lesson-xp"><span aria-hidden="true">+</span> 10 XP za pravilen odgovor</span></div>
+            <div id="quiz-progress" class="quiz-progress" role="progressbar" aria-label="Napredek pri vprašanjih v lekciji" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="quiz-progress-fill"></span></div>
+            <div id="challenge-content" class="challenge-content">
+              <div class="empty-state-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+              <h3 id="challenge-title">Izberite temo na svoji učni poti</h3>
+              <p>Čaka vas prvi izziv. Rešite tri vprašanja, preberite razlage in okrepite občutek za reakcije.</p>
+              <button id="empty-start-button" class="secondary-button" type="button">Spoznajte prvo temo <span aria-hidden="true">-&gt;</span></button>
+            </div>
+            <div id="feedback-panel" class="feedback-panel" hidden aria-live="polite">
+              <div class="feedback-icon" id="feedback-icon" aria-hidden="true"></div>
+              <div><h3 id="feedback-title"></h3><p id="feedback-explanation"></p></div>
+              <button id="continue-button" class="continue-button" type="button">Nadaljuj <span aria-hidden="true">-&gt;</span></button>
+            </div>
+          </section>
+          <p id="storage-notice" class="storage-notice" role="status" hidden></p>
+          <footer class="page-footer"><span>Radovednost je odličen katalizator.</span><span>Za vse, ki razmišljajo v mehanizmih.</span></footer>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="material-dialog" class="material-dialog" aria-labelledby="material-title">
+      <form id="material-form" class="material-form" method="dialog">
+        <div class="material-heading">
+          <div>
+            <p class="eyebrow">UČENJE PO TVOJIH ZAPISKIH</p>
+            <h2 id="material-title">Dodaj svojo snov</h2>
+          </div>
+          <button id="close-material-dialog" class="dialog-close" type="button" aria-label="Zapri">×</button>
+        </div>
+
+        <label class="material-field">
+          <span>Naslov lekcije</span>
+          <input id="material-lesson-title" type="text" maxlength="60" placeholder="Na primer: Aldehidi in ketoni" required>
+        </label>
+        <label class="material-field">
+          <span>Letnik</span>
+          <select id="material-year">
+            <option value="3">3. letnik</option>
+            <option value="4">4. letnik</option>
+          </select>
+        </label>
+
+        <div class="material-upload">
+          <label for="material-image" class="upload-label">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <span><strong>Fotografiraj ali izberi sliko zapiskov</strong><small>JPG, PNG ali druga podprta slika (do 15 MB)</small></span>
+          </label>
+          <input id="material-image" type="file" accept="image/*" capture="environment">
+          <img id="material-image-preview" class="material-image-preview" alt="Predogled izbrane fotografije" hidden>
+          <button id="recognize-material-button" class="secondary-button" type="button" disabled>Prepoznaj besedilo</button>
+        </div>
+        <p id="ocr-status" class="ocr-status" role="status">Fotografija se obdela v tej napravi. Za prvo uporabo je potrebna internetna povezava za prenos brezplačnega OCR-ja. Rokopis je lahko prepoznan slabše.</p>
+
+        <label class="material-field material-text-field">
+          <span>Prepoznano besedilo <small>Pred ustvarjanjem vprašanj lahko popravite napake OCR-ja.</small></span>
+          <textarea id="material-text" rows="5" placeholder="Besedilo iz zapiskov se bo pojavilo tukaj." maxlength="12000"></textarea>
+        </label>
+        <button id="generate-questions-button" class="secondary-button" type="button">Ustvari vprašanja</button>
+        <div id="generated-questions" class="generated-questions" aria-live="polite" hidden></div>
+        <button id="save-material-button" class="primary-button save-material-button" type="button" disabled>Shrani lekcijo</button>
+        <p class="privacy-note">Slika se ne nalaga na strežnik. Shranjeni prepis in vprašanja ostanejo v brskalniku na tej napravi.</p>
+      </form>
+    </dialog>
+  </body>
+</html>
