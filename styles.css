@@ -31,7 +31,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid #e78848; outline-offs
 .brand-mark span { width: 3px; border-radius: 4px; background: white; transform: rotate(8deg); }
 .brand-mark span:nth-child(1) { height: 9px; }.brand-mark span:nth-child(2) { height: 16px; }.brand-mark span:nth-child(3) { height: 12px; }
 .topbar-note { margin: 0 0 0 32px; color: var(--muted); font-size: 12px; }
+.help-link { margin-left: auto; color: var(--green-dark); font-size: 10px; font-weight: 750; text-decoration: none; white-space: nowrap; }
+.help-link:hover { text-decoration: underline; }
 .stats { display: flex; gap: 24px; margin-left: auto; }
+.help-link + .stats { margin-left: 24px; }
 .stat { display: flex; align-items: center; gap: 8px; }
 .stat-icon { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 9px; font-size: 18px; font-weight: 800; }
 .xp-icon { color: var(--green-dark); background: var(--green-soft); }.streak-icon { color: #bc733c; background: #fff0df; font-size: 14px; }
@@ -78,6 +81,20 @@ h1 span { color: var(--green); }
 .molecule-art .formula-label { fill: #426c5c; font-size: 18px; font-weight: 700; }.molecule-art .label-o { fill: #cf7355; }
 .molecule-art .orbit { fill: none; stroke: #d8e9dd; stroke-width: 1; stroke-dasharray: 3 7; }.molecule-art .orbit-2 { stroke: #e6eee5; stroke-dasharray: 2 8; }
 .art-tag { position: absolute; padding: 5px 8px; border: 1px solid #e1ebe2; border-radius: 5px; color: #6e8376; background: rgba(255,255,255,.88); font-size: 7px; font-weight: 800; letter-spacing: 1px; }.tag-top { top: 35px; right: 26px; }.tag-bottom { bottom: 29px; right: 26px; }
+.usage-guide { margin: 18px 0 0; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.8); box-shadow: 0 8px 24px rgba(29, 54, 47, .035); }
+.usage-guide summary { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 16px; border-radius: inherit; cursor: pointer; list-style: none; }
+.usage-guide summary::-webkit-details-marker { display: none; }
+.usage-guide summary > span:first-child strong, .usage-guide summary > span:first-child small { display: block; }
+.usage-guide summary > span:first-child strong { color: var(--green-dark); font-size: 11px; }
+.usage-guide summary > span:first-child small { margin-top: 4px; color: var(--muted); font-size: 9px; }
+.guide-chevron { width: 27px; height: 27px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 8px; color: var(--green); background: var(--green-soft); font-size: 17px; transition: transform .16s; }
+.usage-guide[open] .guide-chevron { transform: rotate(45deg); }
+.guide-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0 16px 15px; }
+.guide-step { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1px solid #edf0eb; border-radius: 9px; background: #fcfdfb; }
+.guide-number { width: 25px; height: 25px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 7px; color: var(--green-dark); background: var(--green-soft); font-size: 8px; font-weight: 850; }
+.guide-step h3 { margin: 2px 0 5px; font-size: 10px; }
+.guide-step p { margin: 0; color: #75817a; font-size: 9px; line-height: 1.6; }
+.guide-note { grid-column: 1 / -1; margin: 0; padding: 0 2px; color: #7e8982; font-size: 9px; line-height: 1.6; }
 .lesson-heading { display: flex; align-items: center; justify-content: space-between; margin: 30px 1px 16px; }
 .lesson-heading .eyebrow { margin: 0 0 6px; font-size: 8px; }.lesson-heading h2 { margin: 0; font-size: 21px; letter-spacing: -.6px; }.lesson-heading p:not(.eyebrow) { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
 .lesson-badge { display: flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; color: #78847d; background: rgba(255,255,255,.7); font-size: 7px; font-weight: 800; letter-spacing: .7px; line-height: 1.5; }.lesson-badge span:first-child { color: var(--orange); font-size: 17px; letter-spacing: -1px; }
@@ -134,7 +151,7 @@ dialog.material-dialog::backdrop { background: rgba(24, 38, 33, .48); backdrop-f
   .welcome-panel { padding-left: 25px; }.welcome-copy { max-width: calc(100% - 210px); }.molecule-art { right: -32px; opacity: .48; }
 }
 @media (max-width: 620px) {
-  .topbar { height: 62px; padding: 0 17px; }.topbar-note { display: none; }.stats { gap: 14px; }.stat-icon { width: 25px; height: 25px; }
+  .topbar { height: 62px; padding: 0 12px; }.topbar-note { display: none; }.help-link { font-size: 9px; }.help-link + .stats { gap: 10px; margin-left: 12px; }.stats { gap: 14px; }.stat-icon { width: 25px; height: 25px; }
   .layout { display: flex; flex-direction: column; }.sidebar { padding: 14px 15px 11px; border-right: 0; border-bottom: 1px solid var(--line); }
   .course-label { font-size: 8px; }.course-progress { padding: 13px 0 11px; }.course-progress #progress-caption { display: none; }.progress-track { margin-top: 7px; }
   .lesson-nav { display: flex; gap: 6px; overflow-x: auto; padding: 1px 1px 5px; scrollbar-width: thin; }
@@ -142,6 +159,7 @@ dialog.material-dialog::backdrop { background: rgba(24, 38, 33, .48); backdrop-f
   .lesson-link { width: auto; min-width: 48px; min-height: 43px; justify-content: center; padding: 5px; }.lesson-name, .lesson-check { display: none; }.lesson-number { width: 29px; height: 29px; }
   .add-material-button { width: auto; min-height: 35px; align-self: flex-start; margin-top: 7px; font-size: 10px; }
   .sidebar-foot { display: none; }.main-content { padding: 18px 14px 17px; }.welcome-panel { min-height: 211px; padding: 23px 19px; }.welcome-copy { max-width: 100%; }.welcome-text { max-width: 390px; font-size: 11px; }.molecule-art { right: -113px; opacity: .22; }
+  .usage-guide { margin-top: 13px; }.guide-content { grid-template-columns: minmax(0, 1fr); gap: 8px; }.guide-note { grid-column: 1; }
   h1 { font-size: 33px; }.lesson-heading { margin-top: 22px; }.lesson-heading h2 { font-size: 18px; }.lesson-badge { padding: 5px 7px; }.lesson-card { padding: 17px 15px 20px; }.challenge-content { min-height: 215px; padding-top: 23px; }
   .feedback-panel { grid-template-columns: 28px minmax(0, 1fr); }.feedback-icon { width: 27px; height: 27px; }.continue-button { grid-column: 2; justify-self: start; margin-top: 4px; }.page-footer { font-size: 8px; }
   .material-form { grid-template-columns: minmax(0, 1fr) 115px; gap: 12px; padding: 18px; }.material-heading h2 { font-size: 19px; }.material-upload { grid-template-columns: minmax(0, 1fr); }.material-upload .secondary-button { justify-self: start; }.upload-label strong { line-height: 1.5; }

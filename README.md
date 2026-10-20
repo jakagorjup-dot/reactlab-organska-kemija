@@ -4,7 +4,16 @@ Kratka, interaktivna aplikacija za utrjevanje organske kemije v 3. in 4. letniku
 
 ## Začetek
 
-Datoteko `index.html` odprite v sodobnem namiznem ali mobilnem brskalniku. Osnovne lekcije, razlage in napredek delujejo neposredno z lokalne datoteke tudi brez povezave.
+Aplikacijo odprite na [React Lab](https://jakagorjup-dot.github.io/reactlab-organska-kemija/) v sodobnem namiznem ali mobilnem brskalniku. Vgrajena navodila so na strani pod povezavo **Kako uporabljati**. Osnovne lekcije, razlage in napredek delujejo tudi brez povezave.
+
+### Hitri vodnik
+
+1. Za začetek pritisnite **Začnite učenje** ali izberite temo v levem meniju.
+2. Izberite odgovor, preberite razlago in nadaljujte na naslednje vprašanje. Pravilen odgovor prinese XP; z dokončanjem vseh treh vprašanj zaključite temo.
+3. Za svojo snov pritisnite **Dodaj svojo snov**, vnesite naslov in letnik ter fotografirajte zapiske ali izberite sliko.
+4. Pritisnite **Prepoznaj besedilo**, popravite prepis, ustvarite vprašanja, preglejte predogled in shranite lekcijo.
+
+Napredek in osebne lekcije so shranjeni v trenutnem brskalniku na tej napravi. Če stran odprete na drugi napravi ali izbrišete podatke brskalnika, se ne prenesejo samodejno.
 
 ## Učna pot
 
